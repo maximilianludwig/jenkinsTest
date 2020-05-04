@@ -1,10 +1,7 @@
 #!groovy
-def example1() {
-  println 'Hello from example1'
-}
 
-def example2() {
-  println 'Hello from example2'
+stage("test"){
+  steps{
+    echo "I do need to know whether this works"
+  }
 }
-
-return this
