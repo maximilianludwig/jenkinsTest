@@ -1,13 +1,18 @@
 #!groovyy
 pipeline {
-    agent { any }
+    agent { docker { image 'python:3.5.1' } }
     stages {
-        stage('Load') {
-             code = load 'test.groovy'
+        stage('build') {
+            steps {
+                sh 'python --version'
+            }
         }
-
-         stage('Execute') {
+        stage("load"){
+            def code= load "test.groovy"
+        }
+        stage('Execute') {
             code.example1()
         }
     }
 }
+
