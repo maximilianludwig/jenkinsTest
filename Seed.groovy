@@ -1,6 +1,6 @@
 #!groovyy
+def code= load "test.groovy"
 pipeline {
-    def code= load "test.groovy"
     agent { docker { image 'python:3.5.1' } }
     stages {
         stage('build') {
