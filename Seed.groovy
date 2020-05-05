@@ -11,7 +11,7 @@ pipeline {
         stage('Execute') {
             steps{
                 script{
-                    code.example1()
+                    code
                 }
             }
         }
