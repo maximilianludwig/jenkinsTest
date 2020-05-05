@@ -6,16 +6,16 @@ pipeline {
         stage('build') {
             steps {
                 sh 'python --version'
-                pwd
+                sh "pwd"
             }
         }
         stage('Execute') {
             steps{
                 definition {   
                     cps {
-                     script(
+                        script{
                            readFileFromWorkspace('jenkins/test.groovy')
-                     )
+                        }
                     }
                  }
             }
