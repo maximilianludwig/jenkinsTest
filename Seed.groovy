@@ -10,7 +10,9 @@ pipeline {
         }
         stage('Execute') {
             steps{
-            code.example1()
+                script{
+                    code.example1()
+                }
             }
         }
     }
