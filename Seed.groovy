@@ -6,13 +6,13 @@ pipeline {
         stage('build') {
             steps {
                 sh 'python --version'
+                pwd
             }
         }
         stage('Execute') {
             steps{
                 definition {   
                     cps {
-                     sandbox()
                      script(
                            readFileFromWorkspace('jenkins/test.groovy')
                      )
