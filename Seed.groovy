@@ -10,9 +10,14 @@ pipeline {
         }
         stage('Execute') {
             steps{
-                script{
-                    code
-                }
+                definition {   
+                    cps {
+                     sandbox()
+                     script(
+                           readFileFromWorkspace('jenkins/test.groovy')
+                     )
+                    }
+                 }
             }
         }
     }
